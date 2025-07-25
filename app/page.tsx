@@ -1,11 +1,11 @@
-import Image from "next/image";
+import { WorkExperience } from "@/components/WorkExperience";
+import HeroSection from "../components/HeroSection";
 
 export default function Home() {
   return (
-    <main>
-      <div className="bg-black">
-        <h1>hello world</h1>
-      </div>
-    </main>
+    <div className="portfolio-container">
+      <HeroSection />
+      <WorkExperience />
+    </div>
   );
 }
