@@ -1,6 +1,6 @@
 function SignatureCard() {
   return (
-    <div className="bg-gray-200 p-6 rounded-3xl shadow-lg w-full h-full flex flex-col justify-between">
+    <div className="bg-gray-200 p-6 rounded-xl shadow-lg w-full h-full flex flex-col justify-between">
       <div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">Signature</h3>
         <p className="text-sm text-gray-600 mb-2">More about me</p>

@@ -1,6 +1,6 @@
 function Certificates() {
   return (
-    <div className="bg-gray-200 p-6 rounded-3xl shadow-lg w-full h-full flex flex-col justify-between">
+    <div className="bg-gray-200 p-6 rounded-xl shadow-lg w-full h-full flex flex-col justify-between">
       <div className="flex-1 flex items-center justify-center">
         <div className="text-6xl">🏆</div>
       </div>

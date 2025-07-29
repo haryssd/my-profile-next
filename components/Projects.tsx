@@ -1,6 +1,6 @@
 function Projects() {
   return (
-    <div className="bg-gray-200 p-6 rounded-3xl shadow-lg w-full h-full flex flex-col justify-between">
+    <div className="bg-gray-200 p-6 rounded-xl shadow-lg w-full h-full flex flex-col justify-between">
       <div>
         <div className="flex items-center space-x-3 mb-4">
           <div className="text-3xl">💼</div>

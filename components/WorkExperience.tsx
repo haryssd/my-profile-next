@@ -1,6 +1,6 @@
 function WorkExperience() {
   return (
-    <div className="bg-gray-200 p-6 rounded-3xl shadow-lg w-full h-full flex items-center justify-between">
+    <div className="bg-gray-200 p-6 rounded-xl shadow-lg w-full h-full flex items-center justify-between">
       <div>
         <div className="flex space-x-4 mb-4">
           {/* Code Icon */}

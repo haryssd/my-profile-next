@@ -105,7 +105,7 @@ function MusicPlayer() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-red-50 via-red-100 to-pink-100 p-4 rounded-3xl shadow-lg w-full h-full flex flex-col justify-between relative overflow-hidden border border-red-200/50">
+    <div className="bg-gradient-to-br from-red-50 via-red-100 to-pink-100 p-4 rounded-xl shadow-lg w-full h-full flex flex-col justify-between relative overflow-hidden border border-red-200/50">
       {/* Header */}
       <div className="flex items-center justify-between relative z-10">
         <div className="flex items-center space-x-2">

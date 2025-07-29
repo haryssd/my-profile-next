@@ -1,6 +1,6 @@
 export default function ProfileCard() {
   return (
-    <div className="bg-gray-200 p-6 rounded-3xl shadow-lg h-full flex gap-4 items-start">
+    <div className="bg-gray-200 p-6 rounded-xl shadow-lg h-full flex gap-4 items-start">
       {/* Profile Image */}
       <div className="flex-shrink-0">
         <img
