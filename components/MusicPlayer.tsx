@@ -109,13 +109,13 @@ function MusicPlayer() {
       {/* Header */}
       <div className="flex items-center justify-between relative z-10">
         <div className="flex items-center space-x-2">
-          <div className="w-5 h-5 bg-red-500 rounded-sm flex items-center justify-center">
+          <div className="w-6 h-6 bg-red-500 rounded-sm flex items-center justify-center">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
               <path d="M23 9.71a8.5 8.5 0 0 0-.91-4.13 2.92 2.92 0 0 0-1.72-1A78.36 78.36 0 0 0 12 4.27a78.36 78.36 0 0 0-8.34.3 2.87 2.87 0 0 0-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 0 0 0 4.61c.06 1.2.2 2.62 1.1 3.45a2.87 2.87 0 0 0 1.46.74 78.36 78.36 0 0 0 8.34.3 78.36 78.36 0 0 0 8.34-.3 2.92 2.92 0 0 0 1.72-1 8.5 8.5 0 0 0 .91-4.13 48.14 48.14 0 0 0 .08-2.4v-.24a48.14 48.14 0 0 0-.08-2.4z" />
               <path d="M9.74 14.85V8.15l5.92 3.35z" />
             </svg>
           </div>
-          <span className="text-xs font-semibold text-gray-700">YouTube</span>
+          <span className="text-xl font-semibold text-gray-700">YouTube</span>
         </div>
 
         <div className="flex items-center space-x-2">
@@ -139,7 +139,7 @@ function MusicPlayer() {
       {/* Main Content */}
       <div className="flex items-center space-x-4 flex-1 relative z-10">
         {/* Vinyl Player */}
-        <div className="relative w-16 h-16 flex-shrink-0">
+        <div className="relative w-18 h-18 flex-shrink-0">
           {/* Floating Music Notes */}
           {isPlaying && (
             <>
@@ -183,7 +183,7 @@ function MusicPlayer() {
 
           {/* Spinning vinyl Record */}
           <div
-            className={`absolute inset-0 w-16 h-16 rounded-full bg-gradient-to-r from-gray-800 via-black to-gray-900 border-2 shadow-xl transition-all duration-500 ${
+            className={`absolute inset-0 w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 via-black to-gray-900 border-2 shadow-xl transition-all duration-500 ${
               isPlaying
                 ? "animate-spin border-red-400 shadow-red-400/50"
                 : "border-gray-700"
@@ -215,7 +215,7 @@ function MusicPlayer() {
           </div>
 
           {/* Album Cover */}
-          <div className="absolute top-1 left-1 w-10 h-10 rounded-lg overflow-hidden shadow-lg z-10">
+          <div className="absolute top-1 left-1 w-14 h-14 rounded-lg overflow-hidden shadow-lg z-10">
             <img
               src="/images/kanye.jpg"
               alt="Ghost Town Album Cover"
@@ -248,10 +248,10 @@ function MusicPlayer() {
 
         {/* Song Info */}
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-900 text-sm truncate mb-1">
+          <h3 className="font-bold text-gray-900 text-lg truncate mb-1">
             Ghost Town
           </h3>
-          <p className="text-gray-600 text-xs truncate mb-2">Kanye West</p>
+          <p className="text-gray-600 text-sm truncate mb-2">Kanye West</p>
 
           {/* Progress Bar */}
           <div className="w-full bg-gray-200 rounded-full h-1 mb-1 relative overflow-hidden">
