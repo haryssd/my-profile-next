@@ -1,48 +1,66 @@
+"use client";
+
+import { useState } from "react";
 import ProfileCard from "@/components/ProfileCard";
 import Tagline from "@/components/Tagline";
 import SignatureCard from "@/components/SignatureCard";
+import MusicPlayer from "@/components/MusicPlayer";
 import StatsCard from "@/components/StatsCard";
 import WorkExperience from "@/components/WorkExperience";
 import Certificates from "@/components/Certificates";
 import Projects from "@/components/Projects";
-import MusicPlayer from "@/components/MusicPlayer";
+import { SplashScreen } from "@/components/SplashScreen";
 
 export default function Home() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
   return (
-    <div className="min-h-screen bg-black p-4">
-      <div className="grid grid-cols-3 gap-6 ">
-        {/* Row 1 */}
-        <div className="row-span-2">
-          <ProfileCard />
-        </div>
-        <div className="col-span-2">
-          <Tagline />
-        </div>
+    <>
+      {/* Splash Screen */}
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      
+      {/* Main Portfolio Content */}
+      <div className={`min-h-screen bg-black p-8 transition-all duration-500 ${
+        showSplash ? 'blur-sm opacity-50' : 'blur-none opacity-100'
+      }`}>
+        <div className="grid grid-cols-3 gap-6 max-w-9xl mx-auto">
+          {/* Row 1 */}
+          <div className="row-span-2">
+            <ProfileCard />
+          </div>
+          <div className="col-span-2">
+            <Tagline />
+          </div>
 
-        {/* Row 2 */}
-        <div>
-          <SignatureCard />
-        </div>
-        <div>
-          <MusicPlayer />
-        </div>
+          {/* Row 2 */}
+          <div>
+            <SignatureCard />
+          </div>
+          <div>
+            <MusicPlayer />
+          </div>
 
-        {/* Row 3 */}
-        <div className="col-span-1">
-          <WorkExperience />
-        </div>
-        <div>
-          <Projects />
-        </div>
-        <div>
-          <Certificates />
-        </div>
+          {/* Row 3 */}
+          <div className="col-span-1">
+            <WorkExperience />
+          </div>
+          <div>
+            <Projects />
+          </div>
+          <div>
+            <Certificates />
+          </div>
 
-        {/* Row 4 */}
-        <div className="col-span-2">
-          <StatsCard />
+          {/* Row 4 */}
+          <div className="col-span-2">
+            <StatsCard />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
