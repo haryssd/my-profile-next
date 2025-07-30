@@ -24,11 +24,7 @@ export default function Home() {
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
 
       {/* Main Portfolio Content */}
-      <div
-        className={`min-h-screen bg-black p-8 transition-all duration-500 ${
-          showSplash ? "blur-sm opacity-50" : "blur-none opacity-100"
-        }`}
-      >
+      <div className="min-h-screen bg-black p-8">
         <div className="grid grid-cols-3 gap-6 max-w-9xl mx-auto">
           {/* Row 1 */}
           <div className="row-span-2">

@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export const Meteors = ({
   number,
@@ -10,6 +10,17 @@ export const Meteors = ({
   number?: number;
   className?: string;
 }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Don't render anything on server-side
+  if (!isMounted) {
+    return null;
+  }
+
   const meteorCount = number || 20;
   const meteors = new Array(meteorCount).fill(true);
 
@@ -21,8 +32,8 @@ export const Meteors = ({
     >
       {meteors.map((_, idx) => {
         const position = idx * (800 / meteorCount) - 400;
-        // Use deterministic values instead of random
-        const animationDelay = idx * 0.5 + "s";
+        // Use deterministic values to avoid hydration mismatch
+        const animationDelay = idx * 0.3 + "s";
         const animationDuration = 5 + (idx % 3) + "s";
 
         return (
