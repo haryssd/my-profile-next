@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProfileCard from "@/components/ProfileCard";
 import Tagline from "@/components/Tagline";
 import MusicPlayer from "@/components/MusicPlayer";
@@ -13,21 +13,10 @@ import SignatureCard from "@/components/SignatureCard";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
-  const [showTagline, setShowTagline] = useState(false);
 
   const handleSplashComplete = () => {
     setShowSplash(false);
   };
-
-  // After splash ends, trigger tagline fade-in after 100ms
-  useEffect(() => {
-    if (!showSplash) {
-      const timer = setTimeout(() => {
-        setShowTagline(true);
-      }, 100); // Can increase delay for longer pause
-      return () => clearTimeout(timer);
-    }
-  }, [showSplash]);
 
   return (
     <>
@@ -45,11 +34,7 @@ export default function Home() {
           <div className="row-span-2">
             <ProfileCard />
           </div>
-          <div
-            className={`col-span-2 transition-opacity duration-1000 ${
-              showTagline ? "opacity-100" : "opacity-0"
-            }`}
-          >
+          <div className="col-span-2">
             <Tagline />
           </div>
 
