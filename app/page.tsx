@@ -9,7 +9,7 @@ import WorkExperience from "@/components/WorkExperience";
 import Certificates from "@/components/Certificates";
 import Projects from "@/components/Projects";
 import { SplashScreen } from "@/components/SplashScreen";
-import SignatureCard from "@/components/SignatureCard";
+import AboutMe from "@/components/AboutMe";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -35,7 +35,7 @@ export default function Home() {
           </div>
 
           <div>
-            <SignatureCard />
+            <AboutMe />
           </div>
           <div>
             <MusicPlayer />
