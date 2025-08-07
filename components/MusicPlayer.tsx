@@ -105,221 +105,233 @@ function MusicPlayer() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-red-50 via-red-100 to-pink-100 p-4 rounded-xl shadow-lg w-full h-full flex flex-col justify-between relative overflow-hidden border border-red-200/50">
-      {/* Header */}
-      <div className="flex items-center justify-between relative z-10">
-        <div className="flex items-center space-x-2">
-          <div className="w-6 h-6 bg-red-500 rounded-sm flex items-center justify-center">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
-              <path d="M23 9.71a8.5 8.5 0 0 0-.91-4.13 2.92 2.92 0 0 0-1.72-1A78.36 78.36 0 0 0 12 4.27a78.36 78.36 0 0 0-8.34.3 2.87 2.87 0 0 0-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 0 0 0 4.61c.06 1.2.2 2.62 1.1 3.45a2.87 2.87 0 0 0 1.46.74 78.36 78.36 0 0 0 8.34.3 78.36 78.36 0 0 0 8.34-.3 2.92 2.92 0 0 0 1.72-1 8.5 8.5 0 0 0 .91-4.13 48.14 48.14 0 0 0 .08-2.4v-.24a48.14 48.14 0 0 0-.08-2.4z" />
-              <path d="M9.74 14.85V8.15l5.92 3.35z" />
-            </svg>
+    <div className="group p-[2px] bg-gradient-to-r from-blue-400 via-gray-500 to-blue-400 bg-[length:200%_100%] animate-gradient rounded-xl transition-all duration-300 hover:scale-[1.02] h-full">
+      <div className="bg-gradient-to-br from-red-50 via-red-100 to-pink-100 hover:from-red-100 hover:via-red-200 hover:to-pink-200 rounded-[10px] p-4 shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between relative overflow-hidden border border-red-200/50">
+        {/* Header */}
+        <div className="flex items-center justify-between relative z-10">
+          <div className="flex items-center space-x-2">
+            <div className="w-6 h-6 bg-red-500 group-hover:bg-red-600 rounded-sm flex items-center justify-center transition-colors duration-300">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
+                <path d="M23 9.71a8.5 8.5 0 0 0-.91-4.13 2.92 2.92 0 0 0-1.72-1A78.36 78.36 0 0 0 12 4.27a78.36 78.36 0 0 0-8.34.3 2.87 2.87 0 0 0-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 0 0 0 4.61c.06 1.2.2 2.62 1.1 3.45a2.87 2.87 0 0 0 1.46.74 78.36 78.36 0 0 0 8.34.3 78.36 78.36 0 0 0 8.34-.3 2.92 2.92 0 0 0 1.72-1 8.5 8.5 0 0 0 .91-4.13 48.14 48.14 0 0 0 .08-2.4v-.24a48.14 48.14 0 0 0-.08-2.4z" />
+                <path d="M9.74 14.85V8.15l5.92 3.35z" />
+              </svg>
+            </div>
+            <span className="text-xl font-semibold text-gray-700 group-hover:text-red-900 transition-colors duration-300">
+              YouTube
+            </span>
           </div>
-          <span className="text-xl font-semibold text-gray-700">YouTube</span>
+
+          <div className="flex items-center space-x-2">
+            <div className="flex space-x-1">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className={`w-1 bg-red-400 group-hover:bg-red-500 rounded transition-all duration-300 ${
+                    isPlaying ? "animate-pulse" : ""
+                  }`}
+                  style={{
+                    height: isPlaying ? `${12 + i * 4}px` : "8px",
+                    animationDelay: `${i * 100}ms`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="flex items-center space-x-2">
-          <div className="flex space-x-1">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className={`w-1 bg-red-400 rounded transition-all duration-300 ${
-                  isPlaying ? "animate-pulse" : ""
-                }`}
-                style={{
-                  height: isPlaying ? `${12 + i * 4}px` : "8px",
-                  animationDelay: `${i * 100}ms`,
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex items-center space-x-4 flex-1 relative z-10">
-        {/* Vinyl Player */}
-        <div className="relative w-18 h-18 flex-shrink-0">
-          {/* Floating Music Notes */}
-          {isPlaying && (
-            <>
-              {/* Music Note 1 */}
-              <div
-                className="absolute -top-2 -right-1 text-red-500 text-xs animate-bounce"
-                style={{ animationDelay: "0s", animationDuration: "2s" }}
-              >
-                ♪
-              </div>
-              {/* Music Note 2 */}
-              <div
-                className="absolute -top-1 -left-2 text-pink-500 text-xs animate-bounce"
-                style={{ animationDelay: "0.5s", animationDuration: "2.5s" }}
-              >
-                ♫
-              </div>
-              {/* Music Note 3 */}
-              <div
-                className="absolute -bottom-1 -right-2 text-red-400 text-xs animate-bounce"
-                style={{ animationDelay: "1s", animationDuration: "3s" }}
-              >
-                ♪
-              </div>
-              {/* Music Note 4 */}
-              <div
-                className="absolute -bottom-2 -left-1 text-pink-400 text-xs animate-bounce"
-                style={{ animationDelay: "1.5s", animationDuration: "2.2s" }}
-              >
-                ♬
-              </div>
-
-              {/* Pulsing Glow Effect */}
-              <div className="absolute inset-0 w-16 h-16 rounded-full bg-red-400/20 animate-ping"></div>
-              <div
-                className="absolute inset-1 w-14 h-14 rounded-full bg-red-300/30 animate-ping"
-                style={{ animationDelay: "0.5s" }}
-              ></div>
-            </>
-          )}
-
-          {/* Spinning vinyl Record */}
-          <div
-            className={`absolute inset-0 w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 via-black to-gray-900 border-2 shadow-xl transition-all duration-500 ${
-              isPlaying
-                ? "animate-spin border-red-400 shadow-red-400/50"
-                : "border-gray-700"
-            }`}
-            style={{
-              animationDuration: "3s",
-              boxShadow: isPlaying
-                ? "0 0 20px rgba(239, 68, 68, 0.3)"
-                : "0 4px 8px rgba(0,0,0,0.3)",
-            }}
-          >
-            {/* Vinyl grooves */}
-            <div className="absolute inset-1 rounded-full bg-gradient-to-r from-gray-900 to-black">
-              <div className="absolute inset-1 rounded-full bg-black border border-gray-700">
-                {/* Center hole */}
-                <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-gray-600 rounded-full transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-gray-800 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+        {/* Main Content */}
+        <div className="flex items-center space-x-4 flex-1 relative z-10">
+          {/* Vinyl Player */}
+          <div className="relative w-18 h-18 flex-shrink-0">
+            {/* Floating Music Notes */}
+            {isPlaying && (
+              <>
+                {/* Music Note 1 */}
+                <div
+                  className="absolute -top-2 -right-1 text-red-500 group-hover:text-red-600 text-xs animate-bounce transition-colors duration-300"
+                  style={{ animationDelay: "0s", animationDuration: "2s" }}
+                >
+                  ♪
+                </div>
+                {/* Music Note 2 */}
+                <div
+                  className="absolute -top-1 -left-2 text-pink-500 group-hover:text-pink-600 text-xs animate-bounce transition-colors duration-300"
+                  style={{ animationDelay: "0.5s", animationDuration: "2.5s" }}
+                >
+                  ♫
+                </div>
+                {/* Music Note 3 */}
+                <div
+                  className="absolute -bottom-1 -right-2 text-red-400 group-hover:text-red-500 text-xs animate-bounce transition-colors duration-300"
+                  style={{ animationDelay: "1s", animationDuration: "3s" }}
+                >
+                  ♪
+                </div>
+                {/* Music Note 4 */}
+                <div
+                  className="absolute -bottom-2 -left-1 text-pink-400 group-hover:text-pink-500 text-xs animate-bounce transition-colors duration-300"
+                  style={{ animationDelay: "1.5s", animationDuration: "2.2s" }}
+                >
+                  ♬
                 </div>
 
-                {/* Vinyl groove lines */}
-                <div className="absolute inset-2 rounded-full border border-gray-700/50"></div>
-                <div className="absolute inset-3 rounded-full border border-gray-600/30"></div>
-                <div className="absolute inset-4 rounded-full border border-gray-500/20"></div>
-              </div>
-            </div>
+                {/* Pulsing Glow Effect */}
+                <div className="absolute inset-0 w-16 h-16 rounded-full bg-red-400/20 group-hover:bg-red-500/30 animate-ping transition-colors duration-300"></div>
+                <div
+                  className="absolute inset-1 w-14 h-14 rounded-full bg-red-300/30 group-hover:bg-red-400/40 animate-ping transition-colors duration-300"
+                  style={{ animationDelay: "0.5s" }}
+                ></div>
+              </>
+            )}
 
-            {/* Reflection effect */}
-            <div className="absolute top-1 left-2 w-6 h-1 bg-gradient-to-r from-white/20 to-transparent rounded-full transform rotate-45"></div>
-          </div>
-
-          {/* Album Cover */}
-          <div className="absolute top-1 left-1 w-14 h-14 rounded-lg overflow-hidden shadow-lg z-10">
-            <img
-              src="/images/kanye.jpg"
-              alt="Ghost Town Album Cover"
-              className={`w-full h-full object-cover transition-all duration-300 ${
-                isPlaying ? "brightness-110 contrast-110" : ""
-              }`}
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-                target.nextElementSibling?.classList.remove("hidden");
-              }}
-            />
-            {/* Fallback */}
-            <div className="hidden w-full h-full bg-gradient-to-br from-orange-400 to-yellow-400 items-center justify-center">
-              <span className="text-white text-xs font-bold">KW</span>
-            </div>
-          </div>
-
-          {/* Play indicator overlay */}
-          {isPlaying && (
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-4 h-4 bg-white/90 rounded-full flex items-center justify-center animate-pulse">
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="red">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Song Info */}
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-900 text-lg truncate mb-1">
-            Ghost Town
-          </h3>
-          <p className="text-gray-600 text-sm truncate mb-2">Kanye West</p>
-
-          {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-1 mb-1 relative overflow-hidden">
+            {/* Spinning vinyl Record */}
             <div
-              className={`h-1 rounded-full transition-all duration-500 ${
+              className={`absolute inset-0 w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 via-black to-gray-900 border-2 shadow-xl transition-all duration-500 group-hover:shadow-2xl ${
                 isPlaying
-                  ? "bg-gradient-to-r from-red-500 to-pink-500"
-                  : "bg-red-500"
+                  ? "animate-spin border-red-400 shadow-red-400/50 group-hover:border-red-500 group-hover:shadow-red-500/60"
+                  : "border-gray-700 group-hover:border-gray-600"
               }`}
-              style={{ width: `${progress || 0}%` }}
-            />
-            {/* Animated progress shimmer */}
+              style={{
+                animationDuration: "3s",
+                boxShadow: isPlaying
+                  ? "0 0 20px rgba(239, 68, 68, 0.3)"
+                  : "0 4px 8px rgba(0,0,0,0.3)",
+              }}
+            >
+              {/* Vinyl grooves */}
+              <div className="absolute inset-1 rounded-full bg-gradient-to-r from-gray-900 to-black">
+                <div className="absolute inset-1 rounded-full bg-black border border-gray-700 group-hover:border-gray-600 transition-colors duration-300">
+                  {/* Center hole */}
+                  <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-gray-600 group-hover:bg-gray-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 transition-colors duration-300">
+                    <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-gray-800 group-hover:bg-gray-700 rounded-full transform -translate-x-1/2 -translate-y-1/2 transition-colors duration-300"></div>
+                  </div>
+
+                  {/* Vinyl groove lines */}
+                  <div className="absolute inset-2 rounded-full border border-gray-700/50 group-hover:border-gray-600/60 transition-colors duration-300"></div>
+                  <div className="absolute inset-3 rounded-full border border-gray-600/30 group-hover:border-gray-500/40 transition-colors duration-300"></div>
+                  <div className="absolute inset-4 rounded-full border border-gray-500/20 group-hover:border-gray-400/30 transition-colors duration-300"></div>
+                </div>
+              </div>
+
+              {/* Reflection effect */}
+              <div className="absolute top-1 left-2 w-6 h-1 bg-gradient-to-r from-white/20 to-transparent rounded-full transform rotate-45 group-hover:from-white/30 transition-all duration-300"></div>
+            </div>
+
+            {/* Album Cover */}
+            <div className="absolute top-1 left-1 w-14 h-14 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl z-10 transition-shadow duration-300">
+              <img
+                src="/images/kanye.jpg"
+                alt="Ghost Town Album Cover"
+                className={`w-full h-full object-cover transition-all duration-300 ${
+                  isPlaying ? "brightness-110 contrast-110" : ""
+                } group-hover:brightness-105 group-hover:contrast-105`}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = "none";
+                  target.nextElementSibling?.classList.remove("hidden");
+                }}
+              />
+              {/* Fallback */}
+              <div className="hidden w-full h-full bg-gradient-to-br from-orange-400 to-yellow-400 group-hover:from-orange-500 group-hover:to-yellow-500 items-center justify-center transition-all duration-300">
+                <span className="text-white text-xs font-bold">KW</span>
+              </div>
+            </div>
+
+            {/* Play indicator overlay */}
             {isPlaying && (
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-4 h-4 bg-white/90 group-hover:bg-white rounded-full flex items-center justify-center animate-pulse transition-colors duration-300">
+                  <svg
+                    width="8"
+                    height="8"
+                    viewBox="0 0 24 24"
+                    fill="red"
+                    className="group-hover:fill-red-600 transition-colors duration-300"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
             )}
           </div>
 
-          {/* Time Display */}
-          <div className="flex justify-between text-xs text-gray-500">
-            <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(PREVIEW_DURATION)}</span>
+          {/* Song Info */}
+          <div className="flex-1 min-w-0">
+            <h3 className="font-bold text-gray-900 group-hover:text-red-900 text-lg truncate mb-1 transition-colors duration-300">
+              Ghost Town
+            </h3>
+            <p className="text-gray-600 group-hover:text-red-700 text-sm truncate mb-2 transition-colors duration-300">
+              Kanye West
+            </p>
+
+            {/* Progress Bar */}
+            <div className="w-full bg-gray-200 group-hover:bg-gray-300 rounded-full h-1 mb-1 relative overflow-hidden transition-colors duration-300">
+              <div
+                className={`h-1 rounded-full transition-all duration-500 ${
+                  isPlaying
+                    ? "bg-gradient-to-r from-red-500 to-pink-500 group-hover:from-red-600 group-hover:to-pink-600"
+                    : "bg-red-500 group-hover:bg-red-600"
+                }`}
+                style={{ width: `${progress || 0}%` }}
+              />
+              {/* Animated progress shimmer */}
+              {isPlaying && (
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+              )}
+            </div>
+
+            {/* Time Display */}
+            <div className="flex justify-between text-xs text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(PREVIEW_DURATION)}</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Hidden YouTube Player */}
-      <div className="absolute -top-96 left-0 opacity-0 pointer-events-none">
-        <YouTube
-          videoId="5S6az6odzPI"
-          opts={opts}
-          onReady={onReady}
-          onStateChange={onStateChange}
-        />
-      </div>
-
-      {/* Controls */}
-      <div className="flex items-center justify-between relative z-10">
-        <div className="text-xs text-gray-500">
-          {currentTime >= PREVIEW_DURATION
-            ? "Preview Complete"
-            : isPlaying
-            ? "Now Playing"
-            : "Paused"}
+        {/* Hidden YouTube Player */}
+        <div className="absolute -top-96 left-0 opacity-0 pointer-events-none">
+          <YouTube
+            videoId="5S6az6odzPI"
+            opts={opts}
+            onReady={onReady}
+            onStateChange={onStateChange}
+          />
         </div>
 
-        <button
-          onClick={togglePlay}
-          className={`text-white rounded-full px-3 py-1.5 text-xs font-bold flex items-center space-x-1 transition-all duration-200 active:scale-95 shadow-md ${
-            isPlaying
-              ? "bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600"
-              : "bg-red-500 hover:bg-red-600"
-          }`}
-        >
-          <svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor">
-            {isPlaying ? (
-              <path d="M3 3h4v10H3V3zm6 0h4v10H9V3z" />
-            ) : (
-              <path d="M3 13.1231V2.87688C3 1.42024 4.55203 0.520516 5.77196 1.26995L14.1114 6.39307C15.2962 7.12093 15.2962 8.87907 14.1114 9.60693L5.77196 14.73C4.55203 15.4795 3 14.5798 3 13.1231Z" />
-            )}
-          </svg>
-          <span>
+        {/* Controls */}
+        <div className="flex items-center justify-between relative z-10">
+          <div className="text-xs text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
             {currentTime >= PREVIEW_DURATION
-              ? "Replay"
+              ? "Preview Complete"
               : isPlaying
-              ? "Pause"
-              : "Play"}
-          </span>
-        </button>
+              ? "Now Playing"
+              : "Paused"}
+          </div>
+
+          <button
+            onClick={togglePlay}
+            className={`text-white rounded-full px-3 py-1.5 text-xs font-bold flex items-center space-x-1 transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg ${
+              isPlaying
+                ? "bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600"
+                : "bg-red-500 hover:bg-red-600"
+            }`}
+          >
+            <svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor">
+              {isPlaying ? (
+                <path d="M3 3h4v10H3V3zm6 0h4v10H9V3z" />
+              ) : (
+                <path d="M3 13.1231V2.87688C3 1.42024 4.55203 0.520516 5.77196 1.26995L14.1114 6.39307C15.2962 7.12093 15.2962 8.87907 14.1114 9.60693L5.77196 14.73C4.55203 15.4795 3 14.5798 3 13.1231Z" />
+              )}
+            </svg>
+            <span>
+              {currentTime >= PREVIEW_DURATION
+                ? "Replay"
+                : isPlaying
+                ? "Pause"
+                : "Play"}
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
