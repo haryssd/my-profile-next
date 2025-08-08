@@ -10,6 +10,7 @@ import Certificates from "@/components/Certificates";
 import Projects from "@/components/Projects";
 import { SplashScreen } from "@/components/SplashScreen";
 import AboutMe from "@/components/AboutMe";
+import ThroughMyLens from "@/components/ThroughMyLens";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -51,6 +52,9 @@ export default function Home() {
           </div>
           <div className="col-span-2">
             <StatsCard />
+          </div>
+          <div>
+            <ThroughMyLens />
           </div>
         </div>
       </div>
