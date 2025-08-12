@@ -25,7 +25,7 @@ function WorkExperience() {
     {
       id: "current",
       title: "Software Engineer",
-      company: "Current Position",
+      company: "CIBC Technology Sdn Bhd",
       startDate: "2024",
       endDate: null,
       location: "Puchong, Selangor",
@@ -74,7 +74,7 @@ function WorkExperience() {
       className="group p-[2px] bg-gradient-to-r from-blue-400 via-gray-500 to-blue-400 bg-[length:200%_100%] animate-gradient rounded-xl transition-all duration-300 hover:scale-[1.02] h-full cursor-pointer"
       onClick={handleCardClick}
     >
-      <div className="bg-white hover:bg-gray-50 rounded-[10px] p-6 shadow-lg hover:shadow-xl w-full h-full transition-all duration-300 relative overflow-hidden">
+      <div className="bg-gray-50 hover:bg-[#eeeeee] rounded-[10px] p-6 shadow-lg hover:shadow-xl w-full h-full transition-all duration-300 relative overflow-hidden">
         {/* Header */}
         <div className="mb-4">
           <p className="text-sm text-gray-500 mb-1 font-medium tracking-wider uppercase">
@@ -148,18 +148,16 @@ function WorkExperience() {
             <>
               <button
                 onClick={goToPrevious}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-7 h-7 bg-white shadow-md rounded-full flex items-center justify-center cursor-pointer
-                hover:bg-blue-50 hover:shadow-lg active:scale-90 transition-all duration-200 z-10"
+                className="group/nav absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-7 h-7 bg-gray-50 hover:bg-gray-900 shadow-md rounded-full flex items-center justify-center cursor-pointer border border-gray-100 hover:border-blue-900 hover:shadow-lg active:scale-90 transition-colors duration-300 z-10"
               >
-                <ChevronLeft className="w-3.5 h-3.5 text-gray-600 hover:text-blue-600 transition-colors duration-200" />
+                <ChevronLeft className="w-3.5 h-3.5 text-gray-600 group-hover/nav:text-white transition-colors duration-300" />
               </button>
 
               <button
                 onClick={goToNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-7 h-7 bg-white shadow-md rounded-full flex items-center justify-center cursor-pointer
-                hover:bg-blue-50 hover:shadow-lg active:scale-90 transition-all duration-200 z-10"
+                className="group/nav absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-7 h-7 bg-gray-50 hover:bg-gray-900 shadow-md rounded-full flex items-center justify-center cursor-pointer border border-gray-100 hover:border-blue-900 hover:shadow-lg active:scale-90 transition-colors duration-300 z-10"
               >
-                <ChevronRight className="w-3.5 h-3.5 text-gray-600 hover:text-blue-600 transition-colors duration-200" />
+                <ChevronRight className="w-3.5 h-3.5 text-gray-600 group-hover/nav:text-white transition-colors duration-300" />
               </button>
             </>
           )}
@@ -206,6 +204,11 @@ function WorkExperience() {
 
         {/* Background */}
         <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-gradient-to-tl from-blue-400/10 to-transparent rounded-full transition-all duration-300 group-hover:scale-110"></div>
+
+        {/* Briefcase Badge Icon */}
+        <div className="absolute top-6 right-6 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+          <Briefcase className="w-4 h-4 text-blue-600" />
+        </div>
       </div>
     </div>
   );
