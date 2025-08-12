@@ -85,7 +85,7 @@ function WorkExperience() {
           </h3>
         </div>
 
-        {/* Swipeable Experience Preview */}
+        {/* Experience Preview */}
         <div className="relative ">
           <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4 group-hover:from-blue-50 group-hover:to-blue-100 transition-all duration-300">
             <div className="flex items-start gap-3">
@@ -185,9 +185,9 @@ function WorkExperience() {
           )}
         </div>
 
-        {/* Experience Summary + View Details Button */}
+        {/* Experience Summary */}
         <div className="flex items-center justify-end mt-1">
-          {/* View Details Button - Consistent with AboutMe */}
+          {/* View Details Button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -204,7 +204,7 @@ function WorkExperience() {
           </button>
         </div>
 
-        {/* Background Decoration */}
+        {/* Background */}
         <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-gradient-to-tl from-blue-400/10 to-transparent rounded-full transition-all duration-300 group-hover:scale-110"></div>
       </div>
     </div>
