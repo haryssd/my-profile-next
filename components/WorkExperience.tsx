@@ -186,7 +186,7 @@ function WorkExperience() {
         </div>
 
         {/* Experience Summary */}
-        <div className="flex items-center justify-end mt-1">
+        <div className="flex items-center justify-end mt-3">
           {/* View Details Button */}
           <button
             onClick={(e) => {
