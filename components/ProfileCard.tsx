@@ -4,10 +4,10 @@ import { Meteors } from "./ui/meteors";
 
 export default function ProfileCard() {
   return (
-   <div className="group p-[2px] bg-gradient-to-r from-blue-400 via-gray-500 to-blue-400 bg-[length:200%_100%] animate-gradient rounded-xl transition-all duration-300 hover:scale-[1.01] h-full">
-      <div className="bg-[#f7f7f7] hover:bg-[#eeeeee] rounded-[10px] p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full overflow-hidden relative">
+    <div className="  rounded-xl transition-all duration-300 hover:scale-[1.01] h-full">
+      <div className="bg-gray-900 hover:bg-gray-800 rounded-[10px] p-6 shadow-lg hover:shadow-2xl transition-all duration-300 h-full overflow-hidden relative">
         {/* Meteor Background */}
-        <Meteors number={15} className="opacity-30" />
+        <Meteors number={15} className="opacity-20" />
 
         {/* Header Section */}
         <div className="flex gap-4 items-start mb-6 relative z-10">
@@ -16,28 +16,28 @@ export default function ProfileCard() {
             <img
               src="images/Haris2.jpg"
               alt="Haris Daniel"
-              className="rounded-2xl w-35 h-40 object-cover shadow-md group-hover:shadow-2xl transition-shadow duration-300 ring-2 ring-gray-100"
+              className="rounded-2xl w-35 h-40 object-cover shadow-lg group-hover:shadow-2xl transition-shadow duration-300 ring-2 ring-gray-700"
             />
             {/* Online Status Indicator */}
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-gray-900 shadow-lg"></div>
           </div>
 
           {/* Basic Info */}
           <div className="flex-1">
-            <p className="text-sm text-gray-500 mb-1 font-medium tracking-wider uppercase">
+            <p className="text-sm text-gray-400 mb-1 font-medium tracking-wider uppercase">
               Full-Stack Developer
             </p>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-blue-900 transition-colors duration-300">
+            <h2 className="text-3xl font-bold text-white mb-2 leading-tight group-hover:text-blue-400 transition-colors duration-300">
               Haris Daniel Noh
             </h2>
-            <p className="text-md text-gray-600 leading-relaxed">
+            <p className="text-md text-gray-300 leading-relaxed">
               I am a developer based in Selangor
             </p>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-200 relative z-10"></div>
+        <div className="w-full h-px bg-gray-700 relative z-10"></div>
 
         {/* Social Links Section */}
         <div className="mt-5 relative z-10">
@@ -47,11 +47,11 @@ export default function ProfileCard() {
               href="https://github.com/haryssd"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-50 hover:bg-gray-900 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-100 hover:border-gray-900"
+              className="flex-1 bg-gray-800 hover:bg-gray-100 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-gray-300"
             >
               <div className="flex items-center justify-center">
                 <svg
-                  className="w-5 h-5 text-gray-600 group-hover/social:text-white transition-colors duration-300"
+                  className="w-5 h-5 text-gray-400 group-hover/social:text-gray-900 transition-colors duration-300"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -65,11 +65,11 @@ export default function ProfileCard() {
               href="https://www.linkedin.com/in/harisdanielnoh/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-50 hover:bg-blue-600 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-100 hover:border-blue-600"
+              className="flex-1 bg-gray-800 hover:bg-blue-600 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-blue-600"
             >
               <div className="flex items-center justify-center">
                 <svg
-                  className="w-5 h-5 text-gray-600 group-hover/social:text-white transition-colors duration-300"
+                  className="w-5 h-5 text-gray-400 group-hover/social:text-white transition-colors duration-300"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -83,11 +83,11 @@ export default function ProfileCard() {
               href="https://www.instagram.com/haryssd/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-50 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-100 hover:border-transparent"
+              className="flex-1 bg-gray-800 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-transparent"
             >
               <div className="flex items-center justify-center">
                 <svg
-                  className="w-5 h-5 text-gray-600 group-hover/social:text-white transition-colors duration-300"
+                  className="w-5 h-5 text-gray-400 group-hover/social:text-white transition-colors duration-300"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
