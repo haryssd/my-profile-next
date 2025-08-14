@@ -37,7 +37,9 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
-      setTimeout(() => setIsAnimating(true), 10);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setIsAnimating(true));
+      });
     } else {
       setIsAnimating(false);
       setTimeout(() => setShouldRender(false), 300);

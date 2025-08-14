@@ -154,28 +154,27 @@
   }
 }
 
-/* Hide only vertical scrollbar */
 html {
-  overflow-y: scroll; /* still allows scrolling */
-  scrollbar-width: none; /* Firefox */
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 html::-webkit-scrollbar {
-  width: 0; /* Chrome, Safari, Edge */
+  width: 0;
   background: transparent;
 }
 
 body {
-  -ms-overflow-style: none; /* IE and older Edge */
+  -ms-overflow-style: none;
 }
 
-/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+/* Hide scrollbar 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
