@@ -4,8 +4,8 @@ import { Meteors } from "./ui/meteors";
 
 export default function ProfileCard() {
   return (
-    <div className="  rounded-xl transition-all duration-300 hover:scale-[1.01] h-full">
-      <div className="bg-gray-900 hover:bg-gray-800 rounded-[10px] p-6 shadow-lg hover:shadow-2xl transition-all duration-300 h-full overflow-hidden relative">
+    <div className="rounded-xl transition-all hover:scale-[1.01] h-full">
+      <div className="bg-gray-900 rounded-[20px] p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-500 overflow-hidden relative">
         {/* Meteor Background */}
         <Meteors number={15} className="opacity-20" />
 
@@ -37,7 +37,7 @@ export default function ProfileCard() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-700 relative z-10"></div>
+        <div className="w-full h-px bg-gray-50 relative z-10"></div>
 
         {/* Social Links Section */}
         <div className="mt-5 relative z-10">

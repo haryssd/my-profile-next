@@ -153,3 +153,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hide only vertical scrollbar */
+html {
+  overflow-y: scroll; /* still allows scrolling */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  width: 0; /* Chrome, Safari, Edge */
+  background: transparent;
+}
+
+body {
+  -ms-overflow-style: none; /* IE and older Edge */
+}
