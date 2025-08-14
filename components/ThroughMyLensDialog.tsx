@@ -247,73 +247,72 @@ function ThroughMyLensDialog({ isOpen, onClose }: ThroughMyLensDialogProps) {
             : "opacity-0 scale-95 translate-y-8"
         }`}
       >
-        <div className="p-[2px] bg-gradient-to-r from-blue-400 via-gray-500 to-blue-400 bg-[length:200%_100%] animate-gradient rounded-xl">
-          <div className="bg-white rounded-[10px] p-8 shadow-lg h-full">
-            {/* Header with staggered animation */}
-            <div
-              className={`flex items-center justify-between mb-6 transition-all duration-500 delay-100 ${
-                isAnimating
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <Camera className="w-8 h-8 text-blue-600" />
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-1">
-                    Through My Lens
-                  </h2>
-                  <p className="text-gray-600">
-                    Capturing nature's beauty • {photos.length} photos
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={handleClose}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-all duration-300 text-gray-500 hover:text-gray-700 hover:scale-110"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Photo Grid with staggered animation */}
-            <div
-              className={`max-h-[60vh] overflow-y-auto scroll-smooth transition-all duration-500 delay-200 ${
-                isAnimating
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-              style={{
-                scrollbarWidth: "thin",
-                scrollbarColor: "#cbd5e1 #f1f5f9",
-              }}
-            >
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pr-2">
-                {photos.map((photo, index) => (
-                  <PhotoCard
-                    key={photo.id}
-                    photo={photo}
-                    index={index}
-                    onPhotoClick={handlePhotoClick}
-                    isAnimating={isAnimating}
-                  />
-                ))}
+        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-8 h-full">
+          {/* Header with staggered animation */}
+          <div
+            className={`flex items-center justify-between mb-6 transition-all duration-500 delay-100 ${
+              isAnimating
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <Camera className="w-8 h-8 text-blue-400" />
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-1">
+                  Through My Lens
+                </h2>
+                <p className="text-gray-400">
+                  Capturing nature's beauty • {photos.length} photos
+                </p>
               </div>
             </div>
-
-            {/* Footer with staggered animation */}
-            <div
-              className={`mt-6 pt-4 border-t border-gray-200 text-center transition-all duration-500 delay-300 ${
-                isAnimating
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
+            <button
+              onClick={handleClose}
+              className="p-2 hover:bg-gray-800 rounded-lg transition-all duration-300 text-gray-400 hover:text-white hover:scale-110"
             >
-              <p className="text-gray-500 text-sm flex items-center justify-center gap-2">
-                <Heart className="w-4 h-4 text-red-400" />
-                Captured during my monthly mountain adventures
-              </p>
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Photo Grid with staggered animation */}
+          <div
+            className={`hide-scrollbar max-h-[60vh] overflow-y-auto scroll-smooth transition-all duration-500 delay-200 ${
+              isAnimating
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+            style={{
+              scrollBehavior: "smooth",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pr-2">
+              {photos.map((photo, index) => (
+                <PhotoCard
+                  key={photo.id}
+                  photo={photo}
+                  index={index}
+                  onPhotoClick={handlePhotoClick}
+                  isAnimating={isAnimating}
+                />
+              ))}
             </div>
+          </div>
+
+          {/* Footer with staggered animation */}
+          <div
+            className={`mt-6 pt-4 border-t border-gray-700 text-center transition-all duration-500 delay-300 ${
+              isAnimating
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
+            <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
+              <Heart className="w-4 h-4 text-red-400" />
+              Captured during my monthly mountain adventures
+            </p>
           </div>
         </div>
       </div>
@@ -347,7 +346,7 @@ function PhotoCard({
 
   return (
     <div
-      className={`group relative aspect-square rounded-xl overflow-hidden cursor-pointer bg-gray-100 transition-all duration-300 hover:scale-[1.05] hover:shadow-xl ${
+      className={`group relative aspect-square rounded-xl overflow-hidden cursor-pointer bg-gray-800 border border-gray-700 transition-all duration-300 hover:scale-[1.05] hover:shadow-xl hover:border-blue-400/50 ${
         isAnimating
           ? "opacity-100 translate-y-0 scale-100"
           : "opacity-0 translate-y-8 scale-95"
@@ -360,14 +359,14 @@ function PhotoCard({
     >
       {/* Loading placeholder */}
       {!imageLoaded && !hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 z-10">
           <Loader2 className="w-6 h-6 text-gray-400 animate-spin" />
         </div>
       )}
 
       {/* Error state */}
       {hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
           <div className="text-center">
             <X className="w-6 h-6 text-gray-400 mx-auto mb-1" />
             <p className="text-xs text-gray-500">Failed to load</p>
@@ -375,7 +374,7 @@ function PhotoCard({
         </div>
       )}
 
-      {/* Progressive image loading - thumbnail first */}
+      {/* Progressive image loading */}
       <img
         src={photo.thumbnail || photo.src}
         alt={photo.title}
@@ -391,14 +390,14 @@ function PhotoCard({
         }}
       />
 
-      {/* Enhanced overlay with smooth animations */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+      {/* Overlay with smooth animations */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
         <div className="absolute bottom-3 left-3 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
           <h4 className="font-semibold text-sm">{photo.title}</h4>
           <p className="text-xs text-gray-300">{photo.description}</p>
         </div>
         <div className="absolute top-3 right-3 transform scale-75 group-hover:scale-100 transition-transform duration-300">
-          <ZoomIn className="w-5 h-5 text-white/80" />
+          <ZoomIn className="w-5 h-5 text-blue-400" />
         </div>
       </div>
     </div>
