@@ -141,7 +141,7 @@ function StatsCard() {
             </div>
           </div>
 
-          {/* Tech Skills - Clickable */}
+          {/* Tech Skills */}
           <div
             className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md cursor-pointer"
             onClick={handleSkillsClick}
