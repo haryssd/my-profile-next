@@ -185,6 +185,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: black !important;
+}
+
+/* Only hide overflow when splash is showing */
+body:not(.splash-complete) {
   overflow: hidden;
 }
 

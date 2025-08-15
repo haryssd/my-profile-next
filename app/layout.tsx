@@ -23,33 +23,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ backgroundColor: "black" }}>
-      <head>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-            html, body {
-              margin: 0;
-              padding: 0;
-              background-color: black !important;
-              overflow: hidden;
-            }
-            .main-content {
-              display: none;
-            }
-            body.splash-complete .main-content {
-              display: block;
-            }
-            body.splash-complete {
-              overflow: auto;
-            }
-          `,
-          }}
-        />
-      </head>
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ backgroundColor: "black", margin: 0, padding: 0 }}
       >
         {children}
       </body>
