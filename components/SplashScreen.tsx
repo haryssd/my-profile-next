@@ -10,6 +10,7 @@ interface SplashScreenProps {
 
 export function SplashScreen({ onComplete }: SplashScreenProps) {
   const [fadeOut, setFadeOut] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const words =
     "Crafting digital experiences. Building the future. One line of code at a time.";
@@ -18,12 +19,13 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
     // Start fade out after 5 seconds
     const fadeTimer = setTimeout(() => {
       setFadeOut(true);
+      setIsClosing(true);
     }, 5000);
 
-    // Complete after 5.5 seconds
+    // Complete after 6 seconds (longer to allow for smooth transition)
     const completeTimer = setTimeout(() => {
       onComplete();
-    }, 5500);
+    }, 6000);
 
     return () => {
       clearTimeout(fadeTimer);
@@ -33,8 +35,10 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 transition-all duration-500 ${
-        fadeOut ? "opacity-0 scale-105" : "opacity-100 scale-100"
+      className={`fixed inset-0 z-50 transition-all duration-1000 ease-in-out ${
+        isClosing
+          ? "opacity-0 scale-110 blur-sm"
+          : "opacity-100 scale-100 blur-0"
       }`}
     >
       <Vortex
@@ -44,7 +48,13 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
         baseHue={160}
         className="flex items-center flex-col justify-center px-4 md:px-10 py-4 w-full h-full"
       >
-        <div className="text-center space-y-8">
+        <div
+          className={`text-center space-y-8 transition-all duration-1000 delay-100 ${
+            isClosing
+              ? "opacity-0 translate-y-8 scale-95"
+              : "opacity-100 translate-y-0 scale-100"
+          }`}
+        >
           {/* Logo/Name */}
           <div className="space-y-2">
             <h1 className="text-white text-4xl md:text-6xl font-bold tracking-tight">
@@ -70,7 +80,11 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
         </div>
 
         {/* Progress indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <div
+          className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-200 ${
+            isClosing ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+          }`}
+        >
           <div className="flex items-center space-x-2 text-white/60">
             <div className="w-8 h-1 bg-white/20 rounded-full overflow-hidden">
               <div

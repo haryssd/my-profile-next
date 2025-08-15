@@ -168,7 +168,7 @@ body {
   -ms-overflow-style: none;
 }
 
-/* Hide scrollbar 
+/* Hide scrollbar */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -177,4 +177,42 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Immediate page styling - no flash */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black !important;
+  overflow: hidden;
+}
+
+/* Main content hidden by default */
+.main-content {
+  display: none;
+}
+
+/* Show main content only when splash is complete */
+body.splash-complete .main-content {
+  display: block;
+}
+
+body.splash-complete {
+  overflow: auto;
+}
+
+/* Splash screen styles */
+.splash-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-loading.hidden {
+  display: none;
 }
