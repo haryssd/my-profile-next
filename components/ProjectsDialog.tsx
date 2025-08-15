@@ -71,18 +71,6 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
         "Professional timeline and experience showcase",
         "SEO optimized and performance focused",
       ],
-      challenges: [
-        "Implementing smooth scroll reveal animations",
-        "Creating consistent design system across components",
-        "Optimizing image loading and performance",
-        "Building reusable interactive card components",
-      ],
-      learnings: [
-        "Advanced Tailwind CSS techniques and custom animations",
-        "TypeScript best practices for React components",
-        "Modern web performance optimization strategies",
-        "User experience design principles",
-      ],
       stats: {
         contributors: 1,
       },
@@ -100,16 +88,6 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
         "Innovative features to be announced",
         "Cutting-edge technology stack",
         "User-centered design approach",
-      ],
-      challenges: [
-        "Exploring new technology solutions",
-        "Identifying user needs and pain points",
-        "Planning scalable architecture",
-      ],
-      learnings: [
-        "Research and development process",
-        "Technology evaluation and selection",
-        "Project planning and roadmap creation",
       ],
     },
   ];
@@ -408,56 +386,6 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
                       ))}
                     </ul>
                   </div>
-
-                  {/* Challenges & Learnings */}
-                  {(project.challenges || project.learnings) && (
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {project.challenges && (
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-300 mb-3">
-                            Challenges Overcome
-                          </h4>
-                          <ul className="space-y-2">
-                            {project.challenges.map(
-                              (challenge, challengeIndex) => (
-                                <li
-                                  key={challengeIndex}
-                                  className="flex items-start gap-2 text-sm text-gray-200"
-                                >
-                                  <span className="text-yellow-400 mt-1">
-                                    ⚡
-                                  </span>
-                                  <span>{challenge}</span>
-                                </li>
-                              )
-                            )}
-                          </ul>
-                        </div>
-                      )}
-                      {project.learnings && (
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-300 mb-3">
-                            Key Learnings
-                          </h4>
-                          <ul className="space-y-2">
-                            {project.learnings.map(
-                              (learning, learningIndex) => (
-                                <li
-                                  key={learningIndex}
-                                  className="flex items-start gap-2 text-sm text-gray-200"
-                                >
-                                  <span className="text-green-400 mt-1">
-                                    💡
-                                  </span>
-                                  <span>{learning}</span>
-                                </li>
-                              )
-                            )}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  )}
                 </div>
               </section>
             ))}
