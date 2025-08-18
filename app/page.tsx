@@ -33,12 +33,12 @@ export default function Home() {
 
       {/* Main Portfolio Content */}
       <div className="main-content min-h-screen bg-gradient-to-br from-stone-900 via-stone-800 to-stone-700 p-8">
-        <div className="grid grid-cols-3 gap-6 max-w-9xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-9xl mx-auto">
           {/* Row 1 */}
-          <div className="row-span-2">
+          <div className="md:row-span-2">
             <ProfileCard />
           </div>
-          <div className="col-span-2">
+          <div className="md:col-span-2">
             <Tagline />
           </div>
 
@@ -57,7 +57,7 @@ export default function Home() {
           <div>
             <Certificates />
           </div>
-          <div className="col-span-2">
+          <div className="md:col-span-2">
             <StatsCard />
           </div>
           <div>
