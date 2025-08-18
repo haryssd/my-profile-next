@@ -28,7 +28,7 @@ function ThroughMyLens() {
               <p className="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">
                 Photography
               </p>
-              <h3 className="text-lg font-bold text-white transition-colors duration-300 mb-2">
+              <h3 className="text-sm sm:text-lg font-bold text-white transition-colors duration-300 mb-2">
                 Through My Lens
               </h3>
               <p className="text-xs text-gray-300 leading-relaxed">
@@ -37,7 +37,7 @@ function ThroughMyLens() {
             </div>
 
             {/* Visual Element */}
-            <div className="flex flex-col items-center gap-2 ml-4">
+            <div className="flex flex-col items-center gap-2 ml-2 sm:ml-4">
               {/* Camera Icon */}
               <div className="w-10 h-10 bg-gray-800 border border-gray-700 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 group-hover:bg-blue-500/20 group-hover:border-blue-400/30">
                 <Camera className="w-5 h-5 text-gray-300 group-hover:text-blue-400 transition-colors duration-300" />

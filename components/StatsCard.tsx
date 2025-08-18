@@ -106,7 +106,7 @@ function StatsCard() {
     <>
       <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl h-full p-4 transition-all duration-300 hover:scale-[1.01]">
         {/* Main Stats Layout  */}
-        <div className="grid grid-cols-3 gap-4 h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 h-full">
           {/* Years Experience */}
           <div className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md">
             <div className="flex items-center gap-4">
