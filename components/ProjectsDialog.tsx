@@ -400,7 +400,7 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
             }`}
           >
             <p className="text-center text-gray-400 text-sm">
-              More projects coming soon as I continue building and learning! 🚀
+              More projects coming soon as I continue building and learning! 
             </p>
           </div>
         </div>
