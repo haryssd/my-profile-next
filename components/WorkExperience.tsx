@@ -78,10 +78,7 @@ function WorkExperience() {
 
   return (
     <>
-      <div
-        className="group relative bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full cursor-pointer p-6"
-        onClick={handleCardClick}
-      >
+      <div className="group relative bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full cursor-pointer p-6">
         {/* Header */}
         <div className="mb-4">
           <p className="text-sm text-gray-400 mb-1 font-medium tracking-wider uppercase">
