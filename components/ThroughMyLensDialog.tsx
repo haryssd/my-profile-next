@@ -211,7 +211,7 @@ function ThroughMyLensDialog({ isOpen, onClose }: ThroughMyLensDialogProps) {
 
             {/* Animated overlay elements */}
             <div
-              className={`absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white p-3 rounded-lg transition-all duration-300 delay-200 ${
+              className={`absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-black/60 backdrop-blur-sm text-white p-2 sm:p-3 rounded-lg transition-all duration-300 delay-200 ${
                 selectedImageLoaded
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
@@ -225,13 +225,13 @@ function ThroughMyLensDialog({ isOpen, onClose }: ThroughMyLensDialogProps) {
 
             <button
               onClick={handleClosePhoto}
-              className={`absolute top-4 right-4 p-2 bg-black/60 backdrop-blur-sm text-white rounded-lg hover:bg-black/80 transition-all duration-300 delay-100 hover:scale-110 ${
+              className={`absolute top-2 sm:top-4 right-2 sm:right-4 p-2 bg-black/60 backdrop-blur-sm text-white rounded-lg hover:bg-black/80 transition-all duration-300 delay-100 hover:scale-110 ${
                 selectedImageLoaded
                   ? "opacity-100 scale-100"
                   : "opacity-0 scale-75"
               }`}
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>
@@ -247,19 +247,19 @@ function ThroughMyLensDialog({ isOpen, onClose }: ThroughMyLensDialogProps) {
             : "opacity-0 scale-95 translate-y-8"
         }`}
       >
-        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-8 h-full">
+        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-4 sm:p-8 h-full">
           {/* Header with staggered animation */}
           <div
-            className={`flex items-center justify-between mb-6 transition-all duration-500 delay-100 ${
+            className={`flex items-center justify-between mb-4 sm:mb-6 transition-all duration-500 delay-100 ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
             }`}
           >
             <div className="flex items-center gap-3">
-              <Camera className="w-8 h-8 text-blue-400" />
+              <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
               <div>
-                <h2 className="text-3xl font-bold text-white mb-1">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">
                   Through My Lens
                 </h2>
                 <p className="text-gray-400">
@@ -271,7 +271,7 @@ function ThroughMyLensDialog({ isOpen, onClose }: ThroughMyLensDialogProps) {
               onClick={handleClose}
               className="p-2 hover:bg-gray-800 rounded-lg transition-all duration-300 text-gray-400 hover:text-white hover:scale-110"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
@@ -288,7 +288,7 @@ function ThroughMyLensDialog({ isOpen, onClose }: ThroughMyLensDialogProps) {
               msOverflowStyle: "none",
             }}
           >
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pr-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 pr-2">
               {photos.map((photo, index) => (
                 <PhotoCard
                   key={photo.id}
@@ -303,7 +303,7 @@ function ThroughMyLensDialog({ isOpen, onClose }: ThroughMyLensDialogProps) {
 
           {/* Footer with staggered animation */}
           <div
-            className={`mt-6 pt-4 border-t border-gray-700 text-center transition-all duration-500 delay-300 ${
+            className={`mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-700 text-center transition-all duration-500 delay-300 ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -392,11 +392,13 @@ function PhotoCard({
 
       {/* Overlay with smooth animations */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
-        <div className="absolute bottom-3 left-3 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-          <h4 className="font-semibold text-sm">{photo.title}</h4>
-          <p className="text-xs text-gray-300">{photo.description}</p>
+        <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+          <h4 className="font-semibold text-xs sm:text-sm">{photo.title}</h4>
+          <p className="text-xs text-gray-300 hidden sm:block">
+            {photo.description}
+          </p>
         </div>
-        <div className="absolute top-3 right-3 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 transform scale-75 group-hover:scale-100 transition-transform duration-300">
           <ZoomIn className="w-5 h-5 text-blue-400" />
         </div>
       </div>
