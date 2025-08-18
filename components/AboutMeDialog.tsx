@@ -50,8 +50,8 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
   useEffect(() => {
     const observerOptions = {
       root: scrollContainerRef.current,
-      rootMargin: "-40% 0px -40% 0px",
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5],
+      rootMargin: "-30% 0px -30% 0px", // Less aggressive margins for mobile
+      threshold: [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5], // Lower initial threshold
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -146,23 +146,25 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
 
       {/* Dialog */}
       <div
-        className={`relative w-[900px] max-w-full mx-4 max-h-[90vh] transition-all duration-300 text-justify transform ${
+        className={`relative w-full sm:w-[900px] max-w-full mx-4 max-h-[90vh] transition-all duration-300 text-left sm:text-justify transform ${
           isAnimating
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4"
         }`}
       >
-        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-8">
+        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-4 sm:p-8">
           {/* Header */}
           <div
-            className={`flex items-center justify-between mb-8 transition-all duration-500 delay-100 ${
+            className={`flex items-center justify-between mb-4 sm:mb-8 transition-all duration-500 delay-100 ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
             }`}
           >
             <div>
-              <h2 className="text-3xl font-bold text-white mb-2">About Me</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                About Me
+              </h2>
               <p className="text-gray-400">Get to know me better</p>
             </div>
             <button
@@ -176,7 +178,7 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
           {/* Scrollable Content */}
           <div
             ref={scrollContainerRef}
-            className={`hide-scrollbar space-y-8 max-h-[60vh] overflow-y-auto pr-2 pb-8 transition-all duration-500 delay-200 ${
+            className={`hide-scrollbar space-y-6 sm:space-y-8 max-h-[60vh] overflow-y-auto pr-2 pb-8 transition-all duration-500 delay-200 ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -238,7 +240,7 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
                 <div className="p-2 bg-blue-500/20 border border-blue-400/30 rounded-lg">
                   <GraduationCap className="w-5 h-5 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
                   Educational Journey
                 </h3>
               </div>
@@ -255,17 +257,17 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
                     {/* Vertical Line */}
                     <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-blue-400 via-blue-500 to-gray-600"></div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                       {educationData.map((edu, index) => (
                         <div key={index} className="relative">
                           {/* Timeline Dot */}
                           <div className="absolute -left-[1.125rem] top-2 w-4 h-4 bg-blue-500 border-2 border-gray-900 rounded-full shadow-sm"></div>
 
                           {/* Content Card */}
-                          <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 hover:bg-gray-750 transition-all duration-300 hover:shadow-md ml-2">
+                          <div className="bg-gray-800 border border-gray-700 rounded-lg p-3 sm:p-4 hover:bg-gray-750 transition-all duration-300 hover:shadow-md ml-2">
                             <div className="flex items-center justify-between">
                               <div className="flex-1">
-                                <h4 className="font-semibold text-white text-lg">
+                                <h4 className="font-semibold text-white text-base sm:text-lg">
                                   {edu.school}
                                 </h4>
                               </div>
@@ -299,7 +301,7 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
                 <div className="p-2 bg-blue-500/20 border border-blue-400/30 rounded-lg">
                   <Target className="w-5 h-5 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
                   What Really Drives Me
                 </h3>
               </div>
@@ -346,7 +348,7 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
                 <div className="p-2 bg-blue-500/20 border border-blue-400/30 rounded-lg">
                   <Code className="w-5 h-5 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
                   How It All Started – and Where It's Going
                 </h3>
               </div>
@@ -384,7 +386,7 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
 
           {/* Footer */}
           <div
-            className={`mt-8 pt-6 border-t border-gray-700 transition-all duration-500 delay-[600ms] ${
+            className={`mt-4 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700 transition-all duration-500 delay-[600ms] ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"

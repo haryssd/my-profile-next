@@ -177,8 +177,8 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
   useEffect(() => {
     const observerOptions = {
       root: scrollContainerRef.current,
-      rootMargin: "-20% 0px -20% 0px",
-      threshold: [0, 0.1, 0.3, 0.5],
+      rootMargin: "-15% 0px -15% 0px",
+      threshold: [0, 0.05, 0.1, 0.3, 0.5],
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -243,16 +243,16 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
 
       {/* Dialog */}
       <div
-        className={`relative w-[900px] max-w-full mx-4 max-h-[90vh] transition-all duration-300 text-justify transform ${
+        className={`relative w-full sm:w-[900px] max-w-full mx-4 max-h-[90vh] transition-all duration-300 text-left sm:text-justify transform ${
           isAnimating
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4"
         }`}
       >
-        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-8">
+        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-4 sm:p-8">
           {/* Header */}
           <div
-            className={`flex items-center justify-between mb-8 transition-all duration-500 delay-100 ${
+            className={`flex items-center justify-between mb-4 sm:mb-8 transition-all duration-500 delay-100 ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -260,10 +260,10 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
           >
             <div className="flex items-center gap-3">
               <div className="p-2 bg-blue-500/20 border border-blue-400/30 rounded-lg">
-                <Briefcase className="w-6 h-6 text-blue-400" />
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white mb-2">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                   Work Experience
                 </h2>
                 <p className="text-gray-400">
@@ -275,7 +275,7 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
               onClick={handleClose}
               className="p-2 hover:bg-gray-800 rounded-lg transition-colors duration-300 text-gray-400 hover:text-white"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
@@ -306,7 +306,7 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
               <div className="bg-gray-800 border border-gray-700 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <User className="w-5 h-5 text-blue-400" />
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-base sm:text-lg font-semibold text-white">
                     Professional Summary
                   </h3>
                 </div>
@@ -333,12 +333,12 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
                   visibleSections[index + 1] ? "opacity-100" : "opacity-30"
                 }`}
               >
-                <div className="bg-gray-800 border border-gray-700 rounded-xl p-6 hover:bg-gray-750 transition-all duration-300">
+                <div className="bg-gray-800 border border-gray-700 rounded-xl p-4 sm:p-6 hover:bg-gray-750 transition-all duration-300">
                   {/* Experience Header */}
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3 sm:gap-0">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-bold text-white">
+                        <h3 className="text-lg sm:text-xl font-bold text-white">
                           {experience.title}
                         </h3>
                         <span
@@ -350,7 +350,7 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-4 text-sm text-gray-300 mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-300 mb-2">
                         <div className="flex items-center gap-2">
                           <Building className="w-4 h-4 text-blue-400" />
                           <span className="font-medium">
@@ -403,7 +403,7 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
                         {experience.projects.map((project, projIndex) => (
                           <div
                             key={projIndex}
-                            className="bg-gray-700/30 rounded-lg p-4 border border-gray-600/50"
+                            className="bg-gray-700/30 rounded-lg p-3 sm:p-4 border border-gray-600/50"
                           >
                             <h5 className="text-white font-medium text-sm mb-2">
                               {project.name}
@@ -448,7 +448,7 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
 
           {/* Footer */}
           <div
-            className={`mt-8 pt-6 border-t border-gray-700 transition-all duration-500 delay-[600ms] ${
+            className={`mt-4 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700 transition-all duration-500 delay-[600ms] ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -456,7 +456,7 @@ function WorkExperienceDialog({ isOpen, onClose }: WorkExperienceDialogProps) {
           >
             <p className="text-center text-gray-400 text-sm">
               Continuously growing and taking on new challenges in software
-              engineering! 
+              engineering!
             </p>
           </div>
         </div>

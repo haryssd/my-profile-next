@@ -104,13 +104,13 @@ function StatsCard() {
 
   return (
     <>
-      <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl h-full p-4 transition-all duration-300 hover:scale-[1.01]">
+      <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl h-full p-4 sm:p-6 transition-all duration-300 hover:scale-[1.01]">
         {/* Main Stats Layout  */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 h-full">
           {/* Years Experience */}
-          <div className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md">
-            <div className="flex items-center gap-4">
-              <div className="text-3xl font-bold text-white transition-colors duration-300 hover:text-blue-400">
+          <div className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-3 sm:p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="text-2xl sm:text-3xl font-bold text-white transition-colors duration-300 hover:text-blue-400">
                 1+
               </div>
               <div className="flex flex-col justify-center">
@@ -125,9 +125,9 @@ function StatsCard() {
           </div>
 
           {/* Projects */}
-          <div className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md">
-            <div className="flex items-center gap-4">
-              <div className="text-3xl font-bold text-white transition-colors duration-300 hover:text-blue-400">
+          <div className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-3 sm:p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="text-2xl sm:text-3xl font-bold text-white transition-colors duration-300 hover:text-blue-400">
                 1+
               </div>
               <div className="flex flex-col justify-center">
@@ -143,11 +143,11 @@ function StatsCard() {
 
           {/* Tech Skills */}
           <div
-            className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md cursor-pointer"
+            className="border-2 bg-gray-800/80 hover:bg-gray-700 border-gray-700 rounded-lg p-3 sm:p-1 flex items-center justify-center transition-all duration-300 hover:border-blue-400 hover:shadow-md cursor-pointer"
             onClick={handleSkillsClick}
           >
-            <div className="flex items-center gap-4">
-              <div className="text-3xl font-bold text-white transition-colors duration-300 hover:text-blue-400">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="text-2xl sm:text-3xl font-bold text-white transition-colors duration-300 hover:text-blue-400">
                 {skills.length}+
               </div>
               <div className="flex flex-col justify-center">
@@ -178,7 +178,7 @@ function StatsCard() {
 
           {/* Modal Content */}
           <div
-            className={`relative bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-6 mx-4 w-full max-w-2xl max-h-[80vh] overflow-hidden transition-all duration-300 transform ${
+            className={`relative bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-4 sm:p-6 mx-4 w-full max-w-2xl max-h-[80vh] overflow-hidden transition-all duration-300 transform ${
               isAnimating
                 ? "opacity-100 scale-100 translate-y-0"
                 : "opacity-0 scale-95 translate-y-4"
@@ -192,12 +192,12 @@ function StatsCard() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <div className="p-2 bg-blue-500/20 border border-blue-400/30 rounded-lg">
                   <Code className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
                     Technical Skills
                   </h3>
                   <p className="text-gray-400 text-sm">
@@ -221,11 +221,11 @@ function StatsCard() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
                 {skills.map((skill, index) => (
                   <div
                     key={index}
-                    className={`flex flex-col items-center gap-2 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-750 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 ${
+                    className={`flex flex-col items-center gap-2 p-3 sm:p-4 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-750 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 ${
                       isAnimating
                         ? "opacity-100 translate-y-0 scale-100"
                         : "opacity-0 translate-y-8 scale-95"
@@ -235,7 +235,7 @@ function StatsCard() {
                     }}
                   >
                     <div className="text-blue-400">{skill.icon}</div>
-                    <span className="text-gray-200 text-sm font-medium text-center">
+                    <span className="text-gray-200 text-xs sm:text-sm font-medium text-center">
                       {skill.name}
                     </span>
                   </div>

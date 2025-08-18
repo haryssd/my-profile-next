@@ -5,18 +5,18 @@ import { Meteors } from "./ui/meteors";
 export default function ProfileCard() {
   return (
     <div className="rounded-xl transition-all hover:scale-[1.01] h-full">
-      <div className="bg-gray-900 rounded-[20px] p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-500 overflow-hidden relative">
+      <div className="bg-gray-900 rounded-[20px] p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-500 overflow-hidden relative">
         {/* Meteor Background */}
         <Meteors number={15} className="opacity-20" />
 
         {/* Header Section */}
-        <div className="flex gap-4 items-start mb-6 relative z-10">
+        <div className="flex gap-4 mb-6 relative z-10 flex-col sm:flex-row items-center sm:items-start text-center sm:text-left">
           {/* Profile Image */}
           <div className="flex-shrink-0 relative">
             <img
               src="images/Haris2.jpg"
               alt="Haris Daniel"
-              className="rounded-2xl w-35 h-40 object-cover shadow-lg group-hover:shadow-2xl transition-shadow duration-300 ring-2 ring-gray-700"
+              className="rounded-2xl w-24 h-28 sm:w-35 sm:h-40 object-cover shadow-lg group-hover:shadow-2xl transition-shadow duration-300 ring-2 ring-gray-700"
             />
             {/* Online Status Indicator */}
             <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-gray-900 shadow-lg"></div>
@@ -41,13 +41,13 @@ export default function ProfileCard() {
 
         {/* Social Links Section */}
         <div className="mt-5 relative z-10">
-          <div className="flex space-x-3">
+          <div className="flex space-x-2 sm:space-x-3">
             {/* GitHub */}
             <a
               href="https://github.com/haryssd"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-800 hover:bg-gray-100 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-gray-300"
+              className="flex-1 bg-gray-800 hover:bg-gray-100 p-4 sm:p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-gray-300"
             >
               <div className="flex items-center justify-center">
                 <svg
@@ -65,7 +65,7 @@ export default function ProfileCard() {
               href="https://www.linkedin.com/in/harisdanielnoh/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-800 hover:bg-blue-600 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-blue-600"
+              className="flex-1 bg-gray-800 hover:bg-blue-600 p-4 sm:p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-blue-600"
             >
               <div className="flex items-center justify-center">
                 <svg
@@ -83,7 +83,7 @@ export default function ProfileCard() {
               href="https://www.instagram.com/haryssd/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-800 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-transparent"
+              className="flex-1 bg-gray-800 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 p-4 sm:p-3 rounded-xl transition-all duration-300 hover:scale-105 group/social border border-gray-700 hover:border-transparent"
             >
               <div className="flex items-center justify-center">
                 <svg

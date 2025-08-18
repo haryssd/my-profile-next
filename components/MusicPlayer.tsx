@@ -96,22 +96,22 @@ function MusicPlayer() {
 
   return (
     <div className="group rounded-xl transition-all duration-300 hover:scale-[1.02] h-full">
-      <div className="h-full bg-gray-900 rounded-xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-500 overflow-hidden relative flex flex-col justify-between">
+      <div className="h-full bg-gray-900 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-500 overflow-hidden relative flex flex-col justify-between">
         {/* Header */}
         <div className="flex items-center justify-between relative z-10">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <div className="w-6 h-6 bg-blue-500 group-hover:bg-blue-600 rounded-sm flex items-center justify-center transition-colors duration-300">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
                 <path d="M23 9.71a8.5 8.5 0 0 0-.91-4.13 2.92 2.92 0 0 0-1.72-1A78.36 78.36 0 0 0 12 4.27a78.36 78.36 0 0 0-8.34.3 2.87 2.87 0 0 0-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 0 0 0 4.61c.06 1.2.2 2.62 1.1 3.45a2.87 2.87 0 0 0 1.46.74 78.36 78.36 0 0 0 8.34.3 78.36 78.36 0 0 0 8.34-.3 2.92 2.92 0 0 0 1.72-1 8.5 8.5 0 0 0 .91-4.13 48.14 48.14 0 0 0 .08-2.4v-.24a48.14 48.14 0 0 0-.08-2.4z" />
                 <path d="M9.74 14.85V8.15l5.92 3.35z" />
               </svg>
             </div>
-            <span className="text-xl font-semibold text-white transition-colors duration-300">
-              YouTube
+            <span className="text-lg sm:text-xl font-semibold text-white transition-colors duration-300">
+              Music
             </span>
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <div className="flex space-x-1">
               {[1, 2, 3].map((i) => (
                 <div
@@ -130,9 +130,9 @@ function MusicPlayer() {
         </div>
 
         {/* Main Content */}
-        <div className="flex items-center space-x-4 flex-1 relative z-10">
+        <div className="flex items-center space-x-3 sm:space-x-4 flex-1 relative z-10 mt-3 sm:mt-4">
           {/* Vinyl Player */}
-          <div className="relative w-18 h-18 flex-shrink-0">
+          <div className="relative w-16 h-16 sm:w-18 sm:h-18 flex-shrink-0">
             {/* Floating Music Notes */}
             {isPlaying && (
               <>
@@ -176,7 +176,7 @@ function MusicPlayer() {
 
             {/* Spinning vinyl Record */}
             <div
-              className={`absolute inset-0 w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 via-black to-gray-900 border-2 shadow-xl transition-all duration-500 group-hover:shadow-2xl ${
+              className={`absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-gray-800 via-black to-gray-900 border-2 shadow-xl transition-all duration-500 group-hover:shadow-2xl ${
                 isPlaying
                   ? "animate-spin border-blue-400 shadow-blue-400/50 group-hover:border-blue-500 group-hover:shadow-blue-500/60"
                   : "border-gray-700 group-hover:border-gray-600"
@@ -208,7 +208,7 @@ function MusicPlayer() {
             </div>
 
             {/* Album Cover */}
-            <div className="absolute top-1 left-1 w-14 h-14 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl z-10 transition-shadow duration-300">
+            <div className="absolute top-1 left-1 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl z-10 transition-shadow duration-300">
               <img
                 src="/images/kanye.jpg"
                 alt="Ghost Town Album Cover"
@@ -253,10 +253,10 @@ function MusicPlayer() {
 
           {/* Song Info */}
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-white text-lg truncate mb-1 transition-colors duration-300">
+            <h3 className="font-bold text-white text-base sm:text-lg truncate mb-1 transition-colors duration-300">
               Ghost Town
             </h3>
-            <p className="text-gray-400 group-hover:text-gray-300 text-sm truncate mb-2 transition-colors duration-300">
+            <p className="text-gray-400 group-hover:text-gray-300 text-xs sm:text-sm truncate mb-2 transition-colors duration-300">
               Kanye West
             </p>
 
@@ -285,8 +285,8 @@ function MusicPlayer() {
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-between relative z-10">
-          <div className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+        <div className="flex justify-center sm:justify-center items-center relative z-10 mt-3 sm:mt-4 sm:relative">
+          <div className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300 hidden sm:block sm:absolute sm:left-0 sm:top-1/2 sm:transform sm:-translate-y-1/2">
             {currentTime >= PREVIEW_DURATION
               ? "Preview Complete"
               : isPlaying
@@ -296,7 +296,7 @@ function MusicPlayer() {
 
           <button
             onClick={togglePlay}
-            className={`text-white rounded-lg px-3 py-1.5 text-xs font-bold flex items-center space-x-1 transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg ${
+            className={`text-white rounded-lg px-4 py-2 sm:px-3 sm:py-1.5 text-sm sm:text-xs font-bold flex items-center space-x-1 transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg ${
               isPlaying
                 ? "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
                 : "bg-blue-500 hover:bg-blue-600"

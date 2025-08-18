@@ -17,7 +17,7 @@ function ThroughMyLens() {
   return (
     <>
       <div
-        className="group bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full cursor-pointer p-4"
+        className="group bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full cursor-pointer p-4 sm:p-6"
         onClick={handleCardClick}
       >
         <div className="relative overflow-hidden h-full">
@@ -28,7 +28,7 @@ function ThroughMyLens() {
               <p className="text-xs text-gray-400 font-medium tracking-wider uppercase mb-1">
                 Photography
               </p>
-              <h3 className="text-sm sm:text-lg font-bold text-white transition-colors duration-300 mb-2">
+              <h3 className="text-base sm:text-lg font-bold text-white transition-colors duration-300 mb-2">
                 Through My Lens
               </h3>
               <p className="text-xs text-gray-300 leading-relaxed">
@@ -37,15 +37,15 @@ function ThroughMyLens() {
             </div>
 
             {/* Visual Element */}
-            <div className="flex flex-col items-center gap-2 ml-2 sm:ml-4">
+            <div className="flex flex-col items-center gap-2 ml-3 sm:ml-4">
               {/* Camera Icon */}
-              <div className="w-10 h-10 bg-gray-800 border border-gray-700 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 group-hover:bg-blue-500/20 group-hover:border-blue-400/30">
-                <Camera className="w-5 h-5 text-gray-300 group-hover:text-blue-400 transition-colors duration-300" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 border border-gray-700 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 group-hover:bg-blue-500/20 group-hover:border-blue-400/30">
+                <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-gray-300 group-hover:text-blue-400 transition-colors duration-300" />
               </div>
 
               {/* Clickable Indicator Arrow */}
-              <div className="w-5 h-5 bg-gray-800 border border-gray-600 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500 transition-all duration-300">
-                <ArrowUpRight className="w-3 h-3 text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+              <div className="w-4 h-4 sm:w-5 sm:h-5 bg-gray-800 border border-gray-600 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500 transition-all duration-300">
+                <ArrowUpRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
               </div>
             </div>
           </div>

@@ -128,8 +128,8 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
   useEffect(() => {
     const observerOptions = {
       root: scrollContainerRef.current,
-      rootMargin: "-20% 0px -20% 0px",
-      threshold: [0, 0.1, 0.3, 0.5],
+      rootMargin: "-15% 0px -15% 0px",
+      threshold: [0, 0.05, 0.1, 0.3, 0.5],
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -168,7 +168,7 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
       case "completed":
         return (
           <span className="bg-green-600/20 border border-green-500/30 text-green-400 text-xs px-3 py-1 rounded-full font-medium">
-            ✓ Completed
+            Completed
           </span>
         );
       case "in-progress":
@@ -213,16 +213,16 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
 
       {/* Dialog */}
       <div
-        className={`relative w-[900px] max-w-full mx-4 max-h-[90vh] transition-all duration-300 text-justify transform ${
+        className={`relative w-full sm:w-[900px] max-w-full mx-4 max-h-[90vh] transition-all duration-300 text-left sm:text-justify transform ${
           isAnimating
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4"
         }`}
       >
-        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-8">
+        <div className="bg-gray-900 border border-gray-500 rounded-xl shadow-2xl p-4 sm:p-8">
           {/* Header */}
           <div
-            className={`flex items-center justify-between mb-8 transition-all duration-500 delay-100 ${
+            className={`flex items-center justify-between mb-4 sm:mb-8 transition-all duration-500 delay-100 ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -230,10 +230,10 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
           >
             <div className="flex items-center gap-3">
               <div className="p-2 bg-blue-500/20 border border-blue-400/30 rounded-lg">
-                <Code className="w-6 h-6 text-blue-400" />
+                <Code className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white mb-2">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                   My Projects
                 </h2>
                 <p className="text-gray-400">
@@ -245,14 +245,14 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
               onClick={handleClose}
               className="p-2 hover:bg-gray-800 rounded-lg transition-colors duration-300 text-gray-400 hover:text-white"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
           {/* Scrollable Content */}
           <div
             ref={scrollContainerRef}
-            className={`hide-scrollbar space-y-8 max-h-[60vh] overflow-y-auto pr-2 pb-8 transition-all duration-500 delay-200 ${
+            className={`hide-scrollbar space-y-6 sm:space-y-8 max-h-[60vh] overflow-y-auto pr-2 pb-8 transition-all duration-500 delay-200 ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -274,12 +274,12 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
                   visibleSections[index] ? "opacity-100" : "opacity-30"
                 }`}
               >
-                <div className="bg-gray-800 border border-gray-700 rounded-xl p-6 hover:bg-gray-750 transition-all duration-300">
+                <div className="bg-gray-800 border border-gray-700 rounded-xl p-4 sm:p-6 hover:bg-gray-750 transition-all duration-300">
                   {/* Project Header */}
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3 sm:gap-0">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-bold text-white">
+                        <h3 className="text-lg sm:text-xl font-bold text-white">
                           {project.title}
                         </h3>
                         {getStatusBadge(project.status)}
@@ -287,7 +287,7 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
                       <p className="text-gray-300 text-sm mb-3">
                         {project.description}
                       </p>
-                      <div className="flex items-center gap-4 text-xs text-gray-400">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs text-gray-400">
                         <div className="flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
                           <span>
@@ -318,7 +318,7 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
                         )}
                       </div>
                     </div>
-                    <div className="flex gap-2 ml-4">
+                    <div className="flex gap-2 sm:ml-4 self-start">
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}
@@ -393,14 +393,14 @@ function ProjectsDialog({ isOpen, onClose }: ProjectsDialogProps) {
 
           {/* Footer */}
           <div
-            className={`mt-8 pt-6 border-t border-gray-700 transition-all duration-500 delay-[600ms] ${
+            className={`mt-4 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700 transition-all duration-500 delay-[600ms] ${
               isAnimating
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
             }`}
           >
             <p className="text-center text-gray-400 text-sm">
-              More projects coming soon as I continue building and learning! 
+              More projects coming soon as I continue building and learning!
             </p>
           </div>
         </div>
