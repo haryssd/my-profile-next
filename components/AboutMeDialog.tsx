@@ -209,20 +209,37 @@ function AboutMeDialog({ isOpen, onClose }: AboutMeDialogProps) {
                 <p className="text-gray-300 leading-relaxed mb-4">
                   Hey there! I'm{" "}
                   <strong className="text-white">Haris Daniel Bin Noh</strong>,
-                  born in Hospital Tanah Merah, Kelantan. I'm the third of four
-                  siblings, and honestly, growing up in the kampung shaped so
-                  much of who I am today. Life was simple back then, no
-                  smartphones, just endless games of hide and seek in the trees,
-                  swimming in rivers, and playing football in muddy fields with
-                  leeches stuck to our legs. Good times, seriously.
+                  a software engineer based in Klang Valley, KL. I was born in
+                  Tanah Merah, Kelantan, and I’m the third of four siblings.
                 </p>
-                <p className="text-gray-300 leading-relaxed">
-                  Now I'm based in Klang Valley, KL, chasing my career as a
-                  software engineer but those childhood memories in the kampung?
-                  Still the best part of me. The simplicity, the quiet moments,
-                  they shaped how I see the world. I've always been someone who
-                  reflects a lot, not just in my work, but in how I live,
-                  observe, and process life around me.
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  Growing up, I always admired my older siblings, especially my
+                  big brother. Out of the four of us, I was the only one who
+                  didn’t make it to boarding school. I’ll be honest, I was a bit
+                  upset about it because I couldn’t be like them. But looking
+                  back, it turned out to be a blessing. I got to spend more time
+                  with my parents, and as I grew older, I started to realize how
+                  much of what they did and taught me made sense.
+                </p>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  Life in the kampung was simple. Playing hide and seek in the
+                  trees, swimming in rivers, and football in muddy fields with
+                  leeches stuck to our legs might sound rough, but those moments
+                  taught me resilience, teamwork, and how to enjoy the little
+                  things. Those lessons still shape the way I live and work
+                  today.
+                </p>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  My curiosity for how things work naturally grew into a love
+                  for technology. For me, software engineering isn’t just about
+                  writing code, it’s about solving problems and building
+                  solutions that make life easier and more meaningful.
+                </p>
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  I believe in keeping things simple, whether in life or in
+                  code. These days, I’m focused on growing in my career,
+                  learning new things every day, and creating projects that
+                  leave a positive impact.
                 </p>
               </div>
             </section>
