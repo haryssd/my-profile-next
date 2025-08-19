@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   Code,
   Calendar,
@@ -53,10 +53,6 @@ function Projects() {
   const [currentProjectIndex, setProjectIndex] = useState(0);
   const currentProject = projects[currentProjectIndex];
 
-  const handleCardClick = () => {
-    setIsDialogOpen(true);
-  };
-
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
   };
@@ -96,11 +92,32 @@ function Projects() {
     }
   };
 
-  const formatDateRange = (startDate: string, endDate?: string) => {
-    if (startDate === "TBD") return "Coming Soon";
-    if (!endDate) return `${startDate} - Present`;
-    if (startDate === endDate) return startDate;
-    return `${startDate} - ${endDate}`;
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && projects.length > 1) {
+      // Swipe left
+      goToNext({} as React.MouseEvent);
+    }
+    if (isRightSwipe && projects.length > 1) {
+      // Swipe right
+      goToPrevious({} as React.MouseEvent);
+    }
   };
 
   return (
@@ -117,7 +134,13 @@ function Projects() {
         </div>
         {/* Project Preview */}
         <div className="relative">
-          <div className="bg-gray-800 border border-gray-700 rounded-xl p-3 sm:p-4 hover:bg-gray-750 transition-all duration-300">
+          <div
+            className="bg-gray-800 border border-gray-700 rounded-xl p-3 sm:p-4 hover:bg-gray-750 transition-all duration-300"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {" "}
             <div className="flex items-start gap-2 sm:gap-3">
               {/* Icon */}
               <div
@@ -210,6 +233,14 @@ function Projects() {
                   }`}
                 />
               ))}
+            </div>
+          )}
+
+          {projects.length > 1 && (
+            <div className="flex sm:hidden justify-center mt-3 mb-2">
+              <p className="text-xs text-gray-500 flex items-center gap-1">
+                <span> Swipe to navigate </span>
+              </p>
             </div>
           )}
         </div>

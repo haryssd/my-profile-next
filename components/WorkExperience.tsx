@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import WorkExperienceDialog from "./WorkExperienceDialog";
 import {
   Briefcase,
@@ -49,10 +49,6 @@ function WorkExperience() {
   const [currentJobIndex, setCurrentJobIndex] = useState(0);
   const currentJob = jobExperiences[currentJobIndex];
 
-  const handleCardClick = () => {
-    setIsDialogOpen(true);
-  };
-
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
   };
@@ -76,6 +72,34 @@ function WorkExperience() {
     return `${startDate} - ${endDate}`;
   };
 
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && jobExperiences.length > 1) {
+      // Swipe left
+      goToNext({} as React.MouseEvent);
+    }
+    if (isRightSwipe && jobExperiences.length > 1) {
+      // Swipe right
+      goToPrevious({} as React.MouseEvent);
+    }
+  };
+
   return (
     <>
       <div className="group relative bg-gray-900 border border-gray-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full cursor-pointer p-4 sm:p-6">
@@ -89,7 +113,12 @@ function WorkExperience() {
         </div>
         {/* Experience Preview */}
         <div className="relative">
-          <div className="bg-gray-800 border border-gray-700 rounded-xl p-3 sm:p-4 hover:bg-gray-750 transition-all duration-300">
+          <div
+            className="bg-gray-800 border border-gray-700 rounded-xl p-3 sm:p-4 hover:bg-gray-750 transition-all duration-300"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className="flex items-start gap-2 sm:gap-3">
               {/* Icon */}
               <div
@@ -185,6 +214,14 @@ function WorkExperience() {
                   }`}
                 />
               ))}
+            </div>
+          )}
+
+          {jobExperiences.length > 1 && (
+            <div className="flex sm:hidden justify-center mt-3 mb-2">
+              <p className="text-xs text-gray-500 flex items-center gap-1">
+                <span> Swipe to navigate </span>
+              </p>
             </div>
           )}
         </div>
